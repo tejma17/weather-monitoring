@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Weather Monitoring</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <p th:text="'Temperature: ' + ${temp} + '!'" />
+    <p th:text="'Humidity: ' + ${humi} + '!'" />
+    <p th:text="'Rain Drop: ' + ${rain} + '!'" />
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Monitoring</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+
+        .temp{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: inline;
+            font-size: xx-large;            
+        }
+
+        .stats{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: center;
+            font-size: xx-large;
+            color: blanchedalmond;
+            margin-inline: 500px;
+            background-color: rgba(19, 20, 20, 0.568);
+            border-radius: 10px;
+            padding: 10px;
+            
+        }
+
+        body{
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: auto;
+        }
+
+        
+        #date{
+            text-align: end;
+            margin-right: 50px;
+            color: blanchedalmond;
+        }
+
+        #loc{
+            color: antiquewhite; 
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-left: 50px;
+        }
+
+    </style>
+</head>
+<body background="https://ykonline.ca/wp-content/uploads/2012/02/DSC_3113-1140x762.jpg">
+    
+    <div class="topbar" >
+        <h2 id="loc" >Location: Pune</h2>
+        <h2 class="top2" id="date">Date:</h2>
+    </div>
+
+    <div class="stats">
+        <div class="temp">
+            <p  th:text="'Temperature: ' + ${temp} + '!'" ></p>
+            <p th:text="'Humidity: ' + ${humi} + '!'" />
+            <p th:text="'Rain Drop: ' + ${rain} + '!'" />
+        </div>
+    </div>
+
+
+    <script >
+        n =  new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate();
+        document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+    </script>
+</body>
+
+</html>
