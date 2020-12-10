@@ -1,5 +1,7 @@
 package com.weather.monitor;
 
+
+//template class
 public class Weather {
 
     private String Temperature;

@@ -1,6 +1,5 @@
 package com.weather.monitor;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -13,13 +12,13 @@ import com.google.firebase.database.ValueEventListener;
 @Controller
 public class WeatherController {
 
-    @Autowired
-    WeatherService weather2Service;
-
     Weather weather2;
 
+    //This line maps the location of address bar
     @GetMapping("/homepage")
-    public String homepage(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model){
+    public String homepage(Model model){
+        
+        //Initialise Firebase database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("WEATHER");
 
@@ -27,6 +26,7 @@ public class WeatherController {
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                //get items in the class Weather
                 weather2 = dataSnapshot.getValue(Weather.class);
                 System.out.println(weather2);
             }
@@ -38,9 +38,12 @@ public class WeatherController {
         });
 
 
+        //this links the IDs in html file to attributes added below (temp, humi are IDs)
         model.addAttribute("temp", weather2.getTemperature());
         model.addAttribute("humi", weather2.getHumidity());
         model.addAttribute("rain", weather2.getRaindrop());
+        
+        //return same name as of html filename
         return "homepage";
     }
 

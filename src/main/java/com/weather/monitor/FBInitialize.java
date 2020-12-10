@@ -13,9 +13,11 @@ public class FBInitialize {
     @PostConstruct
     public void initialize() {
         try {
+            //Read credentials from the file downloaded fron firebase service account
             FileInputStream serviceAccount =
                     new FileInputStream("./serviceaccount.json");
 
+            //initialise firebase        
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))
                     .setDatabaseUrl("https://iot-weather-monitoring-default-rtdb.firebaseio.com/")
