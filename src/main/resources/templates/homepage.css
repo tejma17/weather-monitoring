@@ -1,0 +1,47 @@
+.temp{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: inline;
+    font-size: xx-large;            
+}
+
+.stats{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    font-size: xx-large;
+    color: blanchedalmond;
+    margin-inline: auto;
+    margin-top: 50px;
+    width: fit-content;
+    background-color: rgba(19, 20, 20, 0.568);
+    border-radius: 10px;
+    padding: 30px;
+    
+}
+
+
+
+body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: auto;
+}
+
+
+.topbar{
+    color: blanchedalmond;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    margin: 40px 0 40px 0;
+}
+
+#date{
+    text-align: end;
+    float: right;
+    margin-right: 50px;
+    
+}
+
+#loc{
+    text-align: start;
+    margin-left: 50px;
+}

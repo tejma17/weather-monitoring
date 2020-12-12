@@ -7,12 +7,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Monitoring</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <style type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
 
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    <script src="https://kit.fontawesome.com/0562cd831a.js" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        
+    
+    
+    </script>
+
+    <style type="text/css">
+            
         .temp{
             font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 7rem;            
+        }
+
+        .table-text{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
             display: inline;
-            font-size: xx-large;            
+            font-size: 1rem;            
         }
 
         .stats{
@@ -20,57 +42,138 @@
             text-align: center;
             font-size: xx-large;
             color: blanchedalmond;
-            margin-inline: 500px;
+            margin-inline: auto;
+            margin-top: 80px;
+            width: fit-content;
             background-color: rgba(19, 20, 20, 0.568);
             border-radius: 10px;
-            padding: 10px;
+            padding: 30px;
             
+        }
+
+
+        td{
+            width: 10rem;
         }
 
         body{
             background-repeat: no-repeat;
             background-size: cover;
             width: auto;
+            margin: 0 0;
         }
 
-        
+        .top{
+            font-family: Russo One;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            margin: 10px 0 10px 0;
+        }
+
+
+        .topbar{
+            background-color: rgba(0, 0, 0, 0.548);
+            color: blanchedalmond;
+            font-family: Raleway;
+            font-weight: bold;
+            font-size: 20px;
+            margin: 5px 0 5px 0;
+            padding: 8px 0 8px 0;
+        }
+
+            
+
+        i{
+            font-size: 3rem;
+        }
+
         #date{
             text-align: end;
+            float: right;
             margin-right: 50px;
-            color: blanchedalmond;
+            
         }
 
         #loc{
-            color: antiquewhite; 
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            text-align: start;
             margin-left: 50px;
         }
-
     </style>
+
+
 </head>
-<body background="https://ykonline.ca/wp-content/uploads/2012/02/DSC_3113-1140x762.jpg">
+
+
+<body>
     
-    <div class="topbar" >
-        <h2 id="loc" >Location: Pune</h2>
-        <h2 class="top2" id="date">Date:</h2>
+    
+    <div class="top">
+        <h1 style="display: inline;">Weatherly</h1>
     </div>
 
-    <div class="stats">
-        <div class="temp">
-            <p  th:text="'Temperature: ' + ${temp} + '!'" ></p>
-            <p th:text="'Humidity: ' + ${humi} + '!'" />
-            <p th:text="'Rain Drop: ' + ${rain} + '!'" />
+    <div class="topbar" >
+        <div class="intop">
+            <p id="loc" style="display: inline;">Location: Latur
+                <span class="top2" id="date">Date:</span>
+            </p> 
         </div>
     </div>
 
+    <div class="stats">
+        <div class="temp" style="margin-bottom: 20px;">
+            <p id="tempe" th:text="${temp}" style="display: inline;"></p>
+        </div>
+        
 
-    <script >
+        <table class="table-text">
+            <tr>
+                <td><i class="iconify" data-icon="wi-humidity" style="font-size: 3rem;"></td>
+                <td><i class="fas fa-cloud-rain"></td>
+            </tr>
+            <tr>
+                <td><p  id="humidi" th:text="${humi}" ></p></td>
+                <td><p  id="rainy" th:text="${rain}" ></p></td>
+            </tr>
+        </table>
+
+    
+
+
+    </div>
+
+
+
+    
+    <script type="text/javascript">
         n =  new Date();
         y = n.getFullYear();
         m = n.getMonth() + 1;
         d = n.getDate();
-        document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+        document.getElementById("date").innerHTML = "Date: "+m + "/" + d + "/" + y;
+        var rain = document.getElementById("rainy").innerHTML;
+        var temp = document.getElementById("tempe").textContent.substr(0,2);
+        temp = parseInt(temp);
+        var humi = document.getElementById("humidi").innerHTML.substr(0,2);
+        humi = parseInt(humi);
+
+
+        if(rain==="YES"){
+            document.body.style.background = "url('https://i.imgur.com/sxM1J0M.jpg')";
+        }else if(temp>=28){
+            document.body.style.background = "url('https://i.imgur.com/TWDvB8i.jpg')";
+        }else{
+            document.body.style.background = "url('https://i.imgur.com/ydVdKFK.jpg')";
+        }
+        console.log(rain);
+        console.log(temp);
+        console.log(humi);
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundRepeat = "no-repeat";
+
+        
     </script>
+    
 </body>
 
 </html>
