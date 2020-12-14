@@ -17,11 +17,6 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
     <script src="https://kit.fontawesome.com/0562cd831a.js" crossorigin="anonymous"></script>
-
-    <script type="text/javascript">
-        
-    </script>
-
     <style type="text/css">
             
         .temp{
@@ -53,6 +48,11 @@
             width: 10rem;
         }
 
+
+        td{
+            width: 10rem;
+        }
+
         body{
             background-repeat: no-repeat;
             background-size: cover;
@@ -63,7 +63,7 @@
         .top{
             font-family: Russo One;
             color: white;
-            /* text-align: center; */
+            text-align: center;
             font-size: 30px;
             margin: 10px 0 10px 0;
         }
@@ -79,7 +79,6 @@
             padding: 8px 0 8px 0;
         }
 
-            
         i{
             font-size: 3rem;
         }
@@ -98,7 +97,7 @@
 
 
 
-        /* Full-width input fields */
+       /* Full-width input fields */
         input[type=text], input[type=password] {
         width: 100%;
         padding: 12px 20px;
@@ -236,6 +235,20 @@
         <button style="margin-left:1300px;">Subscribe</button>
     </div> -->
 
+
+    </style>
+
+
+</head>
+
+
+<body>
+    
+    
+    <div class="top">
+        <h1 style="display: inline;">Weatherly</h1>
+    </div>
+
     <div class="topbar" >
         <div class="intop">
             <p id="loc" style="display: inline;">Location: Latur
@@ -261,6 +274,7 @@
             </tr>
         </table>
 
+
     </div>
 
     <!--login -->
@@ -285,13 +299,14 @@
       </div>
 
 
-
     <script type="text/javascript">
         n =  new Date();
         y = n.getFullYear();
         m = n.getMonth() + 1;
         d = n.getDate();
+
         document.getElementById("date").innerHTML = "Date: "+d + "-" + m + "-" + y;
+
         var rain = document.getElementById("rainy").innerHTML;
         var temp = document.getElementById("tempe").textContent.substr(0,2);
         temp = parseInt(temp);
@@ -311,6 +326,10 @@
         console.log(humi);
         document.body.style.backgroundSize = "cover";
         document.body.style.backgroundRepeat = "no-repeat";
+
+    </script>
+    
+</body>
 
         <!--login -->
         function myFunction() {

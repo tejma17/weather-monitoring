@@ -15,7 +15,7 @@ public class FBInitialize {
         try {
             //Read credentials from the file downloaded fron firebase service account
             FileInputStream serviceAccount =
-                    new FileInputStream("C:/Users/hp/Desktop/Projects/SDL/serviceaccount.json");
+                    new FileInputStream("C:/Users/hp/Desktop/serviceaccount.json");
 
             //initialise firebase        
             FirebaseOptions options = new FirebaseOptions.Builder()
